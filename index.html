@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+</head>
+<body>
+    
+    <header>
+        <h1>Admin Panel</h1>
+     
+    </header>
+    <div class="container">
+        <div class="auth">
+            <h2>Login</h2>
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button id="login">Login</button>
+            <button id="logout" style="display:none;">Logout</button>
+        </div>
+    <div id="admin-panel" style="display:none;"> 
+
+    <nav>
+        <ul>
+            <li><a href="#raf">RAF</a></li>
+            <li><a href="#landing-page">Landing Page</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section id="raf">
+            <h2>RAF Editing Section</h2>
+            <div>
+                <label for="json-file">Upload JSON File:</label>
+                <input type="file" id="json-file">
+            </div>
+            <div>
+                <label for="json-text">upload excel  Table:</label>
+                <textarea id="json-text" rows="4"></textarea>
+            </div>
+            <button id="update-json-btn">upload </button>
+        </section>
+        <section id="landing-page">
+            <h2>Landing Page Editing Section</h2>
+            <div>
+                <label for="text">Text Box EN1:</label>
+                <textarea id="text" rows="4"></textarea>
+
+                <label for="text">Text BoxJP 2:</label>
+                <textarea id="text" rows="4"></textarea>
+                <label for="text">Text Box JP 1:</label>
+                <textarea id="text" rows="4"></textarea>
+                
+                <label for="text">Text Box CH 2:</label>
+                <textarea id="text" rows="4"></textarea>
+                <label for="text">Text Box CH 1:</label>
+                <textarea id="text" rows="4"></textarea>
+                
+                <label for="text">Text Box EN2:</label>
+                <textarea id="text" rows="4"></textarea>
+            </div>
+            <div>
+                <label for="text2">Text Box HeaderEN:</label>
+                <textarea id="text2" rows="4"></textarea>
+                <label for="text2">Text Box HeaderJP:</label>
+                <textarea id="text2" rows="4"></textarea>
+                <label for="text2">Text Box HeaderCH:</label>
+                <textarea id="text2" rows="4"></textarea>
+            </div>
+            <div>
+                <lable for="job for the week">job for the week</lable>
+                <textarea id="text2" rows="1"></textarea>
+                <lable for="job for the week">job for the week</lable>
+                <textarea id="text2" rows="1"></textarea>
+
+
+            </div>
+            <div>
+                <div>
+                    <label for="video-en">Upload Video EN:</label>
+                    <input type="file" id="video-en" accept="video/*">
+                </div>
+                <div>
+                    <label for="video-jp">Upload Video JP:</label>
+                    <input type="file" id="video-jp" accept="video/*">
+                </div>
+                <div>
+                    <label for="video-cn">Upload Video Chinese:</label>
+                    <input type="file" id="video-cn" accept="video/*">
+                </div>
+            <div>
+                <label for="background">Background  EN:</label>
+                <input type="file" id="background-en">
+                <label for="background">Background JP :</label>
+                <input type="file" id="background-jp">
+                <label for="background">Background CN:</label>
+                <input type="file" id="background-cn">
+            </div>
+            <div>
+                <label for="iis">adding NEW utm_source</label>
+                <input type="text" id="iis">
+        
+            </div>
+            <div>             <button id="update-content-btn">Update Content</button>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; Teleperformance Malaysia & Thailand</p>
+
+    </footer>
+</div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
+
