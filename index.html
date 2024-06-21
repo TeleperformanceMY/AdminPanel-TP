@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Add Firebase products from CDN -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-
-</head>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script></head>
 <body>
-    
     <header>
         <h1>Admin Panel</h1>
-     
     </header>
     <div class="container">
         <div class="auth">
@@ -23,100 +21,153 @@
             <button id="login">Login</button>
             <button id="logout" style="display:none;">Logout</button>
         </div>
-    <div id="admin-panel" style="display:none;"> 
-
-    <nav>
-        <ul>
-            <li><a href="#raf">RAF</a></li>
-            <li><a href="#landing-page">Landing Page</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <section id="raf">
-            <h2>RAF Editing Section</h2>
-            <div>
-                <label for="json-file">Upload JSON File:</label>
-                <input type="file" id="json-file">
+        <div id="admin-panel" style="display:none;">
+            <nav>
+                <ul>
+                    <li><a href="#raf">RAF</a></li>
+                    <li><a href="#landing-page">Landing Page</a></li>
+                </ul>
+            </nav>
+            <div class="container">
+                <section id="raf">
+                    <h2>RAF Editing Section</h2>
+                    <div>
+                        <label for="json-file">Upload JSON File:</label>
+                        <input type="file" id="json-file">
+                    </div>
+                    <div>
+                        <label for="json-text">Upload Excel Table:</label>
+                        <textarea id="json-text" rows="4"></textarea>
+                    </div>
+                    <button id="update-json-btn">Upload</button>
+                </section>
+                <section id="landing-page">
+                    <h2>Landing Page Editing Section</h2>
+                    <div>
+                        <label for="text">Text Box EN1:</label>
+                        <textarea id="text" rows="4"></textarea>
+                        <label for="text">Text Box JP2:</label>
+                        <textarea id="text" rows="4"></textarea>
+                        <label for="text">Text Box JP1:</label>
+                        <textarea id="text" rows="4"></textarea>
+                        <label for="text">Text Box CH2:</label>
+                        <textarea id="text" rows="4"></textarea>
+                        <label for="text">Text Box CH1:</label>
+                        <textarea id="text" rows="4"></textarea>
+                        <label for="text">Text Box EN2:</label>
+                        <textarea id="text" rows="4"></textarea>
+                    </div>
+                    <div>
+                        <label for="text2">Text Box Header EN:</label>
+                        <textarea id="text2" rows="4"></textarea>
+                        <label for="text2">Text Box Header JP:</label>
+                        <textarea id="text2" rows="4"></textarea>
+                        <label for="text2">Text Box Header CH:</label>
+                        <textarea id="text2" rows="4"></textarea>
+                    </div>
+                    <div>
+                        <label for="jobForTheWeek1">Job for the Week 1:</label>
+                        <textarea id="jobForTheWeek1" rows="1"></textarea>
+                        <label for="jobForTheWeek2">Job for the Week 2:</label>
+                        <textarea id="jobForTheWeek2" rows="1"></textarea>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="video-en">Upload Video EN:</label>
+                            <input type="file" id="video-en" accept="video/*">
+                        </div>
+                        <div>
+                            <label for="video-jp">Upload Video JP:</label>
+                            <input type="file" id="video-jp" accept="video/*">
+                        </div>
+                        <div>
+                            <label for="video-cn">Upload Video CN:</label>
+                            <input type="file" id="video-cn" accept="video/*">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="background-en">Background EN:</label>
+                        <input type="file" id="background-en">
+                        <label for="background-jp">Background JP:</label>
+                        <input type="file" id="background-jp">
+                        <label for="background-cn">Background CN:</label>
+                        <input type="file" id="background-cn">
+                    </div>
+                    <div>
+                        <label for="utmSource">Adding New UTM Source:</label>
+                        <input type="text" id="utmSource">
+                    </div>
+                    <button id="update-content-btn">Update Content</button>
+                </section>
             </div>
-            <div>
-                <label for="json-text">upload excel  Table:</label>
-                <textarea id="json-text" rows="4"></textarea>
-            </div>
-            <button id="update-json-btn">upload </button>
-        </section>
-        <section id="landing-page">
-            <h2>Landing Page Editing Section</h2>
-            <div>
-                <label for="text">Text Box EN1:</label>
-                <textarea id="text" rows="4"></textarea>
-
-                <label for="text">Text BoxJP 2:</label>
-                <textarea id="text" rows="4"></textarea>
-                <label for="text">Text Box JP 1:</label>
-                <textarea id="text" rows="4"></textarea>
-                
-                <label for="text">Text Box CH 2:</label>
-                <textarea id="text" rows="4"></textarea>
-                <label for="text">Text Box CH 1:</label>
-                <textarea id="text" rows="4"></textarea>
-                
-                <label for="text">Text Box EN2:</label>
-                <textarea id="text" rows="4"></textarea>
-            </div>
-            <div>
-                <label for="text2">Text Box HeaderEN:</label>
-                <textarea id="text2" rows="4"></textarea>
-                <label for="text2">Text Box HeaderJP:</label>
-                <textarea id="text2" rows="4"></textarea>
-                <label for="text2">Text Box HeaderCH:</label>
-                <textarea id="text2" rows="4"></textarea>
-            </div>
-            <div>
-                <lable for="job for the week">job for the week</lable>
-                <textarea id="text2" rows="1"></textarea>
-                <lable for="job for the week">job for the week</lable>
-                <textarea id="text2" rows="1"></textarea>
-
-
-            </div>
-            <div>
-                <div>
-                    <label for="video-en">Upload Video EN:</label>
-                    <input type="file" id="video-en" accept="video/*">
-                </div>
-                <div>
-                    <label for="video-jp">Upload Video JP:</label>
-                    <input type="file" id="video-jp" accept="video/*">
-                </div>
-                <div>
-                    <label for="video-cn">Upload Video Chinese:</label>
-                    <input type="file" id="video-cn" accept="video/*">
-                </div>
-            <div>
-                <label for="background">Background  EN:</label>
-                <input type="file" id="background-en">
-                <label for="background">Background JP :</label>
-                <input type="file" id="background-jp">
-                <label for="background">Background CN:</label>
-                <input type="file" id="background-cn">
-            </div>
-            <div>
-                <label for="iis">adding NEW utm_source</label>
-                <input type="text" id="iis">
-        
-            </div>
-            <div>             <button id="update-content-btn">Update Content</button>
-            </div>
-        </section>
+        </div>
     </div>
     <footer>
         <p>&copy; Teleperformance Malaysia & Thailand</p>
-
     </footer>
-</div>
-</div>
-<script src="script.js"></script>
+    
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCxZOkhqzccEFGtlwI7l_ToJjPUI3u9JDk",
+            authDomain: "admin-panel-tp.firebaseapp.com",
+            projectId: "admin-panel-tp",
+            storageBucket: "admin-panel-tp.appspot.com",
+            messagingSenderId: "368338391294",
+            appId: "1:368338391294:web:11d88da1311b368f1615af",
+            measurementId: "G-Q73853CEJ3"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const auth = firebase.auth();
 
+        document.getElementById('login').addEventListener('click', () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    document.querySelector('.auth').style.display = 'none';
+                    document.getElementById('admin-panel').style.display = 'block';
+                    document.getElementById('logout').style.display = 'block';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    if (errorCode === 'auth/wrong-password') {
+                        alert('Wrong password. Please try again.');
+                    } else if (errorCode === 'auth/user-not-found') {
+                        alert('User not found. Please check your email or sign up.');
+                    } else {
+                        alert(errorMessage);
+                    }
+                    console.error('Error signing in:', error);
+                });
+        });
+
+        document.getElementById('logout').addEventListener('click', () => {
+            auth.signOut().then(() => {
+                document.querySelector('.auth').style.display = 'block';
+                document.getElementById('admin-panel').style.display = 'none';
+                document.getElementById('logout').style.display = 'none';
+            }).catch((error) => {
+                console.error('Error signing out:', error);
+            });
+        });
+
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                document.querySelector('.auth').style.display = 'none';
+                document.getElementById('admin-panel').style.display = 'block';
+                document.getElementById('logout').style.display = 'block';
+            } else {
+                document.querySelector('.auth').style.display = 'block';
+                document.getElementById('admin-panel').style.display = 'none';
+                document.getElementById('logout').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
-
